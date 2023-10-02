@@ -2,21 +2,19 @@ package br.com.tech4me.pastelaria.server;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.com.tech4me.pastelaria.model.Pastel;
 import br.com.tech4me.pastelaria.repository.RepositoryPastel;
 import br.com.tech4me.pastelaria.shared.PastelCompletoDTO;
 import br.com.tech4me.pastelaria.shared.PastelDTO;
+
 @Service
 public class PastelServerImpl implements PastelServer{
+
     @Autowired
     RepositoryPastel repositorio;
-
-    
-
+ 
     @Override
     public List<PastelDTO> obterTodos() {
        return repositorio.findAll().stream().
@@ -60,4 +58,5 @@ public class PastelServerImpl implements PastelServer{
       }
       return Optional.empty();
     }
+    
 }

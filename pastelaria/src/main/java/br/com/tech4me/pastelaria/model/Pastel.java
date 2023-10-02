@@ -1,7 +1,6 @@
 package br.com.tech4me.pastelaria.model;
  
 import java.util.List;
-
 import br.com.tech4me.pastelaria.shared.PastelCompletoDTO;
 import br.com.tech4me.pastelaria.shared.PastelDTO;
 import jakarta.persistence.Entity;
@@ -14,16 +13,23 @@ import jakarta.persistence.Table;
 @Entity
 @Table(schema="pastelaria", name = "pastel")
 public class Pastel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
     @JoinColumn(name="sabor-do-pastel")
     private String sabor;
+
     @JoinColumn(name = "ingrediente-dos-pasteis")
     private List<String> ingredientes;
+
     private Tamanho tamanho;
+
     private Tipo tipo;
+
     private Double valor;
+
     private Integer quantidade;
 
     public Pastel (){
@@ -38,7 +44,7 @@ public class Pastel {
     setTipo(dtc.tipo());
     setValor(dtc.valor());
     setQuantidade(dtc.quantidade());
-}
+    }
    
      public Pastel(PastelDTO dto){
     setSabor(dto.sabor());
@@ -47,12 +53,7 @@ public class Pastel {
     setTipo(dto.tipo());
     setQuantidade(dto.quantidade());}
    
-
-
-
-
-    
-    
+   
     public String getSabor() {
         return sabor;
     }
